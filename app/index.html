@@ -1,3 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Who Pays the Bill?</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			
+			<div class="applicant_container">
+				<h1>Who pays the bill?</h1>
+				<div class="applicant_input">
+					<input type="text" id="applicant_value" placeholder="Enter Applicant">
+					<span id="add_applicant">Add</span>
+				</div>
+
+				<div class="applicant_list">
+					<h5>Who's participating?</h5>
+					<div class="applicant_list_wrapper">
+						<span>Jon</span>
+					</div>
+				</div>
+
+				<div class="button_container">
+					<div id="show_results">Get the loser</div>
+				</div>
+			</div>
+
+
+			<!-- BEGIN RESULTS CONTAINER -->
+			<div class="results_container hidden">
+				<h1>The one who's gonna pay the bill is:</h1>
+				<div class="result">
+					<h3>Jon</h3>
+				</div>
+
+				<div class="results_action">
+					<div class="run_again">Run it again?</div>
+					<div class="start_again">Start again with new names</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	
+</body>
+<script src="assets/js/main.js"></script>	
 </html>
