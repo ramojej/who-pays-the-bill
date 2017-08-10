@@ -10,12 +10,28 @@
 	function generateList(input) {
 		var value = input.value;
 
-		if(this.checkValid(value)) {
-			applicants.push(value);
+		if(this.checkValid(value.toLowerCase())) {
+			applicants.push(value.toLowerCase());
 			input.value = '';
+			showList();
 		} else {
 			alert('Something went wrong');
 		}
+
+	}
+
+
+	function showList() {
+
+		var parent = document.querySelector('.applicant_list_wrapper');
+		var template = '';
+
+		for(var i = 0; i < applicants.length; i++) {
+			template += '<span data-id="">'+ applicants[i] +'</span>';
+		}
+
+		parent.innerHTML = '';
+		parent.insertAdjacentHTML('afterbegin', template);
 	}
 
 
