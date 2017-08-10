@@ -27,11 +27,12 @@
 		var template = '';
 
 		for(var i = 0; i < applicants.length; i++) {
-			template += '<span data-id="">'+ applicants[i] +'</span>';
+			template += '<span class="name-tag" data-id="'+i+'">'+ applicants[i] +'</span>';
 		}
 
 		parent.innerHTML = '';
 		parent.insertAdjacentHTML('afterbegin', template);
+		deleteOne();
 	}
 
 
@@ -54,6 +55,28 @@
 
 		return false;
 	};
+
+
+	this.deleteOne = function() {
+		var item = document.querySelectorAll('.name-tag');
+
+		function removeIt(element) {
+
+			var attr = parseInt(element.getAttribute('data-id'));
+
+			applicants.splice(attr, 1);
+			showList();
+
+
+		}
+
+		for(var i = 0; i < item.length; i++) {
+
+			item[i].addEventListener('click', function(e) {
+				removeIt(this)
+			});
+		}
+	}
 
 
 	this.init();
