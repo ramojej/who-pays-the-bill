@@ -4,6 +4,7 @@
 
 	this.init = function() {
 		this.addApplicants();
+		this.getRandomUser();
 	};
 
 
@@ -66,8 +67,6 @@
 
 			applicants.splice(attr, 1);
 			showList();
-
-
 		}
 
 		for(var i = 0; i < item.length; i++) {
@@ -76,7 +75,42 @@
 				removeIt(this)
 			});
 		}
-	}
+	};
+
+
+	this.getRandomUser = function() {
+		var resultsButton = document.querySelector('#show_results');
+
+		function showLoser() {
+			var resultsContainer = document.querySelector('.results_container');
+			var applicantsContainer = document.querySelector('.applicant_container');
+
+			applicantsContainer.className += ' hidden';
+			resultsContainer.className = 'results_container';
+
+			showRandomUser();
+		}
+
+		resultsButton.addEventListener('click', function(e) {
+			if(applicants.length > 1) {
+				showLoser();
+			} else {
+				alert('Please enter more than 1 contestant');
+			}
+		});
+
+	};
+
+
+	this.showRandomUser = function() {
+		var randomContainer = document.querySelector('.result');
+
+		var rand = applicants[Math.floor(Math.random() * applicants.length)];
+
+		randomContainer.innerHTML = '';
+		randomContainer.insertAdjacentHTML('afterbegin', '<h3>'+ rand +'</h3>');
+
+	}; 
 
 
 	this.init();
